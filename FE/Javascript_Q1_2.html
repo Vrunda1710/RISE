@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Comparison</title>
+    <style>
+        body 
+        {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+
+        h1 
+        {
+            color:blueviolet;
+        }
+        p{
+            color:blue;
+        }
+        span{
+            color: sienna;
+        }
+
+        #result 
+        {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        button 
+        {
+            padding: 10px;
+            background-color:darkblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><u>BMI Comparison</u></h1>
+    <p>Mark's weight: <span id="markWeight">78</span> kg</p>
+    <p>Mark's height: <span id="markHeight">1.69</span> m</p>
+    <p>John's weight: <span id="johnWeight">92</span> kg</p>
+    <p>John's height: <span id="johnHeight">1.95</span> m</p>
+    <button onclick="calculateBMI()">Calculate BMI</button>
+    <p id="result"></p>
+
+    <!-- output :-Mark has a higher BMI than John.   -->
+
+    <!-- <p>Mark's weight: <span id="markWeight">95</span> kg</p>
+    <p>Mark's height: <span id="markHeight">1.88</span> m</p>
+    <p>John's weight: <span id="johnWeight">85</span> kg</p>
+    <p>John's height: <span id="johnHeight">1.76</span> m</p>
+    <button onclick="calculateBMI()">Calculate BMI</button>
+    <p id="result"></p> -->
+
+    <!-- output :-John has a higher BMI than Mark. -->
+
+    <!-- <p>Mark's weight: <span id="markWeight">95</span> kg</p>
+    <p>Mark's height: <span id="markHeight">1.88</span> m</p>
+    <p>John's weight: <span id="johnWeight">95</span> kg</p>
+    <p>John's height: <span id="johnHeight">1.88</span> m</p>
+    <button onclick="calculateBMI()">Calculate BMI</button>
+    <p id="result"></p> -->
+
+    <!-- output :-Mark and John have the same BMI-->
+
+
+
+    <script>
+        function calculateBMI()
+        {
+            const markWeight = parseFloat(document.getElementById('markWeight').textContent);
+            const markHeight = parseFloat(document.getElementById('markHeight').textContent);
+            const johnWeight = parseFloat(document.getElementById('johnWeight').textContent);
+            const johnHeight = parseFloat(document.getElementById('johnHeight').textContent);
+
+            //getElementById is used to  retrieve an element on unique ID.
+            //It allows to access,manipulate elements by their ID.
+
+            const markBMI = markWeight / (markHeight * markHeight);
+            const johnBMI = johnWeight / (johnHeight * johnHeight);
+
+            if (markBMI > johnBMI) {
+                document.getElementById('result').textContent = `Mark has a higher BMI (${markBMI}) than John (${johnBMI}).`;
+            }
+            else if (johnBMI > markBMI) {
+                document.getElementById('result').textContent = `John has a higher BMI  (${johnBMI}) than Mark (${markBMI}).`;
+            } else {
+                document.getElementById('result').textContent = "Mark and John have the same BMI.";
+            }
+        }
+    </script>
+</body>
+
+</html>
